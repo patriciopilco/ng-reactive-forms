@@ -14,4 +14,5 @@ ng g c auth/pages/registerPage --inline-style --skip-selector --skip-tests
 ng g c reactive/pages/basicPage --inline-style --skip-selector --skip-tests
 ng g c reactive/pages/dynamicPage --inline-style --skip-selector --skip-tests
 ng g c reactive/pages/switchesPage --inline-style --skip-selector --skip-tests
+ng g c shared/components/sideMenu --inline-style --skip-selector --skip-tests
 ```

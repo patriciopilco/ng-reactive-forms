@@ -1,8 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [CommonModule,],
   templateUrl: './register-page.component.html',
   styles: ``
 })
