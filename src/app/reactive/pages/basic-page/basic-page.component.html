@@ -1,101 +1,98 @@
-<h2>Reactivos: Básicos</h2>
-<hr>
-
+<h2>Basic</h2>
+<hr />
 <div class="row">
-    <div class="col">
+  <div class="col">
+    <form [formGroup]="myForm" (ngSubmit)="onSave()" autocomplete="off" style="background-color: azure; padding: 2rem;">
+      <!-- Campo de producto -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Producto</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            formControlName="name"
+            placeholder="Product Name"
+          />
+          @if (isValidField('name')) {
+          <span *ngIf="isValidField('name')" class="form-text text-danger">
+            {{ getFieldError("name") }}</span
+          >
+          }
+        </div>
+      </div>
 
-        <form [formGroup]="myForm"
-              (ngSubmit)="onSave()"
-              autocomplete="off">
+      <!-- Campo de producto -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Precio</label>
+        <div class="col-sm-9">
+          <input
+            type="number"
+            class="form-control"
+            formControlName="price"
+            placeholder="Precio del producto"
+          />
+          <span *ngIf="isValidField('price')" class="form-text text-danger">
+            {{ getFieldError("price") }}</span
+          >
+        </div>
+      </div>
 
-            <!-- Campo de producto -->
-            <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Producto</label>
-                <div class="col-sm-9"> 
+      <!-- Campo de existencias -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Existencias</label>
+        <div class="col-sm-9">
+          <input
+            type="number"
+            class="form-control"
+            formControlName="inStorage"
+            placeholder="Existencias del producto"
+          />
+          <span *ngIf="isValidField('inStorage')" class="form-text text-danger">
+            {{ getFieldError("inStorage") }}</span
+          >
+        </div>
+      </div>
 
-                    <input type="text"
-                            id="name"
-                            name="name"
-                           class="form-control"
-                           formControlName="name"
-                           placeholder="Nombre del producto">
-                           {{isValidField('name')}}
-                           <span *ngIf="isValidField('name')" class="form-text text-danger">
-                               {{getFieldError('name')}}**
-                           </span>
-                </div>
-                
-            </div>
-
-            <!-- Campo de producto -->
-            <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Precio</label>
-                <div class="col-sm-9">
-                    <input type="number"
-                           class="form-control"
-                           formControlName="price"
-                           placeholder="Precio del producto">
-                           <span *ngIf="isValidField('price')" class="form-text text-danger"> {{getFieldError('price')}}</span>
-                </div>
-            </div>
-
-            <!-- Campo de existencias -->
-            <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Existencias</label>
-                <div class="col-sm-9">
-                    <input type="number"
-                           class="form-control"
-                           formControlName="inStorage"
-                           placeholder="Existencias del producto">
-                           <span *ngIf="isValidField('inStorage')" class="form-text text-danger"> {{getFieldError('inStorage')}}</span>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col">
-                    <button type="submit"
-                            class="btn btn-primary float-end">
-                        Guardar
-                    </button>
-                </div>
-            </div>
-
-
-
-        </form>
-
-    </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary float-end">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
-
-
-
 <div class="row">
-    <div class="col">
-
-        <span>Valid</span>
+  <div class="col">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span style="font-weight: bold;">Valid</span>
         <pre>{{ myForm.valid | json }}</pre>
-
-        <span>Pristine</span>
+      </li>
+      <li class="list-group-item">
+       <span style="font-weight: bold;">Pristine</span>
         <pre>{{ myForm.pristine | json }}</pre>
-
-        <span>Touched</span>
+      </li>
+      <li class="list-group-item">
+        <span style="font-weight: bold;">Touched</span>
         <pre>{{ myForm.touched | json }}</pre>
-
-        <span>Value</span>
+      </li>
+      <li class="list-group-item">
+        <span style="font-weight: bold;">Value</span>
         <pre>{{ myForm.value | json }}</pre>
-
-        <span>Precio</span>
-        <pre>{{ myForm.controls['price'].value | json }}</pre>
-
-        <span>Precio - Error </span>
-        <pre>{{ myForm.controls['price'].errors | json }}</pre>
-
-        <span>Producto</span>
-        <pre>{{ myForm.controls['product'].value | json }}</pre>
-
-        <span>Product - Error </span>
-        <pre>{{ myForm.controls['product'].errors | json }}</pre>
-    </div>
+      </li>
+      <li class="list-group-item">
+       <span style="font-weight: bold;">Precio</span>
+        <pre>{{ myForm.controls["price"].value | json }}</pre>
+      </li>
+       <li class="list-group-item">
+        <span style="font-weight: bold;">Precio - Error </span>
+        <pre>{{ myForm.controls["price"].errors | json }}</pre>
+      </li>
+    </ul>
+  </div>
 </div>
